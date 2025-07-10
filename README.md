@@ -1,5 +1,5 @@
 # Digital_Clock
-## Date:
+## Date:10.07.2025
 ## Objective:
 To create a live digital clock using HTML, CSS, and JavaScript that updates every second and displays the current time in HH:MM:SS format — a feature commonly used in dashboards and admin panels.
 
@@ -41,8 +41,75 @@ Animate the colon (:) blinking every second.
 
 Add a “Tweet this” button with a share link.
 ## HTML Code:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TimeTrack</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>TimeTrack</h1>
+  <p>Live Digital Clock</p>
+  <div id="clock">00:00:00</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+```
 ## CSS Code:
+```
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #222;
+  color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+h1 {
+  margin-bottom: 5px;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+#clock {
+  font-size: 48px;
+  background-color: #333;
+  padding: 20px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+```
+## Javascript code:
+```
+function updateClock() {
+  const now = new Date();
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+  let seconds = now.getSeconds();
+  hours = String(hours).padStart(2, '0');
+  minutes = String(minutes).padStart(2, '0');
+  seconds = String(seconds).padStart(2, '0');
+  const timeString = `${hours}:${minutes}:${seconds}`;
+  document.getElementById('clock').innerText = timeString;
+}
+setInterval(updateClock, 1000);
+updateClock();
+```
 ## Output:
+![image](https://github.com/user-attachments/assets/10775519-3283-4d6b-a912-5b54f19ad54b)
 
 ## Result:
 A live digital clock using HTML, CSS, and JavaScript that updates every second and displays the current time in HH:MM:SS format — a feature commonly used in dashboards and admin panels is created successfully.
